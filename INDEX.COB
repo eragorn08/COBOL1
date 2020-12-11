@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. INDEX.
+       AUTHOR. KENMA.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-B PIC 9(10).
+       01  WS-MB PIC 9.9(10).
+
+       PROCEDURE DIVISION.
+       CONVERT.
+           DISPLAY 'ENTER NUMBER OF BYTE/S:' ACCEPT WS-B.
+           COMPUTE WS-MB = WS-B * 0.000000954.
+		   DISPLAY WS-B ' is equivalent to ' WS-MB ' MB'.
+           STOP RUN.
