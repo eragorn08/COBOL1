@@ -17,6 +17,12 @@
            05  WS-MB   PIC 9.9(10).  
        01  WS-PGS.
            05  GRADE   PIC 999.
+       01  WS-PRIME.
+           05  PRIME   PIC 999.
+           05  I       PIC 999.
+           05  RES1    PIC 99.
+           05  REM1    PIC 99.
+           05  FLAG1   PIC 9 VALUE 0.
 
        PROCEDURE DIVISION.
        MAIN.
@@ -36,7 +42,7 @@
            IF A    
                PERFORM PARA-PGS
            ELSE IF B
-               CONTINUE
+               PERFORM PARA-PRIME1
            ELSE IF C 
                PERFORM PARA-CONVERT
            ELSE IF D
@@ -77,6 +83,23 @@
            DISPLAY WS-NEWLINE.
            DISPLAY WS-NEWLINE.
            
+       PARA-PRIME1.
+           DISPLAY 'Enter a number: '
+           ACCEPT PRIME.
+           PERFORM VARYING I FROM 2 BY 1 UNTIL I = PRIME
+           DIVIDE PRIME BY I GIVING RES1 REMAINDER REM1
+           IF REM1 = 0 THEN MOVE 1 TO FLAG1
+           END-PERFORM.
+           IF PRIME = 0 
+               DISPLAY PRIME " is neither prime nor composite number"
+           ELSE
+               IF FLAG1 = 0 THEN DISPLAY PRIME " is a prime number"
+               ELSE THEN DISPLAY PRIME " is not a prime number"
+           END-IF.
+           ACCEPT WS-ANY.
+           DISPLAY WS-NEWLINE.
+           DISPLAY WS-NEWLINE.
+
        PARA-CONVERT.
            DISPLAY 'Enter byte/s:' ACCEPT WS-B.
            COMPUTE WS-MB = WS-B * 0.000000954.
