@@ -94,7 +94,7 @@
                DISPLAY PRIME " is neither prime nor composite number"
            ELSE
                IF FLAG1 = 0 THEN DISPLAY PRIME " is a prime number"
-               ELSE THEN DISPLAY PRIME " is not a prime number"
+               ELSE DISPLAY PRIME " is not a prime number"
            END-IF.
            ACCEPT WS-ANY.
            DISPLAY WS-NEWLINE.
@@ -106,4 +106,4 @@
            DISPLAY WS-B ' is equivalent to ' WS-MB ' MB'.
            ACCEPT WS-ANY.
            DISPLAY WS-NEWLINE.
-           DISPLAY WS-NEWLINE.
+           DISPLAY WS-NEWLINE. 
