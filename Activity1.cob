@@ -1,6 +1,5 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. Activity1.
-
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01  WS-ANY        PIC X.
@@ -33,12 +32,10 @@
            05 J          PIC 9.
        01  ARRAY.
            05 OCTALNUM   PIC 9 OCCURS 4 TIMES.
-
        PROCEDURE DIVISION.
        MAIN.
            PERFORM PARA-MENU WITH TEST BEFORE UNTIL WS-QUIT = 1.
            STOP RUN.
-
        PARA-MENU.
            DISPLAY 'MAIN MENU'.
            DISPLAY 'A - PUP Grading System'.
@@ -106,10 +103,10 @@
                IF FLAG1 = 0 THEN DISPLAY PRIME " is a prime number"
                ELSE DISPLAY PRIME " is not a prime number"
            END-IF.
+           MOVE ZERO TO FLAG1.  
            ACCEPT WS-ANY.
            DISPLAY WS-NEWLINE.
            DISPLAY WS-NEWLINE.
-
        PARA-CONVERT.
            DISPLAY 'Enter byte/s:' WITH NO ADVANCING.
            ACCEPT WS-B.
@@ -118,7 +115,6 @@
            ACCEPT WS-ANY.
            DISPLAY WS-NEWLINE.
            DISPLAY WS-NEWLINE.
-
        PARA-OCTAL.
            DISPLAY "Enter a Decimal Number: " WITH NO ADVANCING.
            ACCEPT DECIMALNUM.
@@ -126,18 +122,15 @@
            COMPUTE NUM = DECIMALNUM.
            MOVE 1 TO I.
            MOVE 8 TO EIGHT.
-
            PERFORM UNTIL NUM < EIGHT
                DIVIDE EIGHT INTO NUM GIVING QUO REMAINDER REM
                COMPUTE OCTALNUM(I) = REM
                COMPUTE I = I + 1
                COMPUTE NUM = QUO
            END-PERFORM.
-
            IF NUM < EIGHT THEN
                COMPUTE OCTALNUM(I) = NUM   
            END-IF.
-
            DISPLAY "Equivalent in Octal Number: " WITH NO ADVANCING.
            DISPLAY OCTALNUM(4) WITH NO ADVANCING.                    
            DISPLAY OCTALNUM(3) WITH NO ADVANCING.
