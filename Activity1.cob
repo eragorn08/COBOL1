@@ -3,8 +3,6 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01  CLEAR-SCREEN.
-           02 BLANK SCREEN.
        01  WS-ANY        PIC X.
        01  WS-NEWLINE    PIC X(25) VALUE SPACES.
        01  WS-QUIT       PIC 9     VALUE 0.
@@ -48,11 +46,10 @@
            DISPLAY 'C - Bytes to MB Converter'.
            DISPLAY 'D - Decimal to Octal Converter'.
            DISPLAY 'E - Exit'.
-           
+           DISPLAY 'Choose a letter: ' WITH NO ADVANCING.
            ACCEPT WS-CHOICE.
            
            IF A
-               DISPLAY CLEAR-SCREEN  
                PERFORM PARA-PGS
            ELSE IF B
                PERFORM PARA-PRIME1
@@ -147,5 +144,9 @@
            DISPLAY OCTALNUM(2) WITH NO ADVANCING.
            DISPLAY OCTALNUM(1) WITH NO ADVANCING.
            ACCEPT WS-ANY.
+           MOVE ZERO TO OCTALNUM(1).
+           MOVE ZERO TO OCTALNUM(2).
+           MOVE ZERO TO OCTALNUM(3).
+           MOVE ZERO TO OCTALNUM(4).
            DISPLAY WS-NEWLINE.
            DISPLAY WS-NEWLINE.
