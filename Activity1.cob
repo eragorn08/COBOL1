@@ -3,8 +3,6 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01  CLEAR-SCREEN.
-           02 BLANK SCREEN.
        01  WS-ANY        PIC X.
        01  WS-NEWLINE    PIC X(25) VALUE SPACES.
        01  WS-QUIT       PIC 9     VALUE 0.
@@ -52,7 +50,6 @@
            ACCEPT WS-CHOICE.
            
            IF A
-               DISPLAY CLEAR-SCREEN  
                PERFORM PARA-PGS
            ELSE IF B
                PERFORM PARA-PRIME1
@@ -107,7 +104,7 @@
                DISPLAY PRIME " is neither prime nor composite number"
            ELSE
                IF FLAG1 = 0 THEN DISPLAY PRIME " is a prime number"
-               ELSE THEN DISPLAY PRIME " is not a prime number"
+               ELSE DISPLAY PRIME " is not a prime number"
            END-IF.
            ACCEPT WS-ANY.
            DISPLAY WS-NEWLINE.
